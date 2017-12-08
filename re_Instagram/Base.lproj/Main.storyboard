@@ -65,11 +65,27 @@
                         <outlet property="loginButton" destination="PLN-2G-WWK" id="MWL-FW-hUA"/>
                         <outlet property="passwordTextField" destination="qMi-9L-33f" id="fto-i8-dTv"/>
                         <outlet property="usernameTextField" destination="4zJ-d7-OC6" id="ikK-fx-4b7"/>
+                        <segue destination="3Ue-np-kNb" kind="presentation" identifier="loginSegue" id="mHb-mQ-MYR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="117.59999999999999" y="117.39130434782609"/>
+        </scene>
+        <!--Main Feed View Controller-->
+        <scene sceneID="KJC-rd-YHF">
+            <objects>
+                <viewController id="3Ue-np-kNb" customClass="MainFeedViewController" customModule="re_Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="L1s-Tc-5Xm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="wEJ-iS-Dsw"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0K5-5J-IBE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="951" y="117"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="7vv-AZ-aeb">
@@ -126,11 +142,27 @@
                         <outlet property="passwordTextField" destination="wfX-YP-4RN" id="zQQ-Gy-oL3"/>
                         <outlet property="signUpButton" destination="NgK-en-wtq" id="Vbf-BE-ss0"/>
                         <outlet property="usernameTextField" destination="DRc-Na-v7f" id="kAp-WI-bWR"/>
+                        <segue destination="7Yl-AS-ar8" kind="presentation" identifier="signUpSegue" id="6aw-l4-2Wm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Ep-8T-zBb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="118" y="827"/>
+        </scene>
+        <!--Welcome View Controller-->
+        <scene sceneID="wLU-HB-i5C">
+            <objects>
+                <viewController id="7Yl-AS-ar8" customClass="WelcomeViewController" customModule="re_Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="j4Z-xq-3RB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="2O6-Gb-Dl9"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="erD-eT-nli" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="950" y="826"/>
         </scene>
     </scenes>
 </document>

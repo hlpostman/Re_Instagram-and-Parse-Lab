@@ -30,6 +30,7 @@ class SignUpViewController: UIViewController {
         newUser.signUpInBackground { (success: Bool, error: Error?) in
             if success {
                 print("Created a user")
+                self.performSegue(withIdentifier: "signUpSegue", sender: self)
             } else {
                 print("Error from completion block in SignUpViewController function onSignUp().  Error localized description: \(error!.localizedDescription)")
 //                if error?.code  == 202 {
