@@ -32,6 +32,10 @@ class SignUpViewController: UIViewController {
                 print("Created a user")
             } else {
                 print("Error from completion block in SignUpViewController function onSignUp().  Error localized description: \(error!.localizedDescription)")
+//                if error?.code  == 202 {
+//                     Add code to show user alert
+//                    print("Username is taken")
+//                }
             }
         }
     }

@@ -25,7 +25,13 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func onLogIn(_ sender: Any) {
-   
+        PFUser.logInWithUsername(inBackground: usernameTextField.text!, password: passwordTextField.text!) { (user: PFUser?, error: Error?) in
+            if user != nil {
+                print("Successfully logged in user")
+            } else {
+                print("Error logging in from LoginViewController function onLogIn() with localized description: \(String(describing: error?.localizedDescription))")
+            }
+        }
     
     }
     @IBAction func onGoToSignUp(_ sender: Any) {
