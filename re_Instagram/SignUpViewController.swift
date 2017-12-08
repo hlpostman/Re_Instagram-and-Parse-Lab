@@ -37,7 +37,9 @@ class SignUpViewController: UIViewController {
     }
     
     
-    @IBOutlet weak var onGoToLogin: UIButton!
+    @IBAction func onGoToLogin(_ sender: Any) {
+        performSegue(withIdentifier: "goToLoginSegue", sender: self)
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

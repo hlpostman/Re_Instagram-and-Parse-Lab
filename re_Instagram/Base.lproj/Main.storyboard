@@ -105,6 +105,10 @@
                                 <rect key="frame" x="242" y="519" width="38" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="onGoToLogin:" destination="JgV-Aa-opW" eventType="touchUpInside" id="PiL-wi-cS6"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="goToLoginSegue" id="gR8-3M-p36"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Already have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tlS-Qq-YGF">
                                 <rect key="frame" x="38" y="524" width="196" height="21"/>
@@ -119,7 +123,6 @@
                     </view>
                     <connections>
                         <outlet property="goToLoginButton" destination="Xtz-uS-8Jd" id="aqd-zo-SOf"/>
-                        <outlet property="onGoToLogin" destination="Xtz-uS-8Jd" id="YHD-KM-VSK"/>
                         <outlet property="passwordTextField" destination="wfX-YP-4RN" id="zQQ-Gy-oL3"/>
                         <outlet property="signUpButton" destination="NgK-en-wtq" id="Vbf-BE-ss0"/>
                         <outlet property="usernameTextField" destination="DRc-Na-v7f" id="kAp-WI-bWR"/>
