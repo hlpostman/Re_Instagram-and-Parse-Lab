@@ -15,6 +15,8 @@
 		BEEAEB421FD334B500DCD9CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEEAEB401FD334B500DCD9CE /* LaunchScreen.storyboard */; };
 		BEEAEB4D1FD334B600DCD9CE /* re_InstagramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEAEB4C1FD334B600DCD9CE /* re_InstagramTests.swift */; };
 		BEEAEB581FD334B600DCD9CE /* re_InstagramUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEAEB571FD334B600DCD9CE /* re_InstagramUITests.swift */; };
+		BEEAEB661FD3416600DCD9CE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEAEB651FD3416600DCD9CE /* LoginViewController.swift */; };
+		BEEAEB681FD3425100DCD9CE /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEAEB671FD3425100DCD9CE /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		BEEAEB531FD334B600DCD9CE /* re_InstagramUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = re_InstagramUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEEAEB571FD334B600DCD9CE /* re_InstagramUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = re_InstagramUITests.swift; sourceTree = "<group>"; };
 		BEEAEB591FD334B600DCD9CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BEEAEB651FD3416600DCD9CE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		BEEAEB671FD3425100DCD9CE /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +120,8 @@
 				BEEAEB371FD334B500DCD9CE /* AppDelegate.swift */,
 				BEEAEB391FD334B500DCD9CE /* ViewController.swift */,
 				BEEAEB3B1FD334B500DCD9CE /* Main.storyboard */,
+				BEEAEB671FD3425100DCD9CE /* SignUpViewController.swift */,
+				BEEAEB651FD3416600DCD9CE /* LoginViewController.swift */,
 				BEEAEB3E1FD334B500DCD9CE /* Assets.xcassets */,
 				BEEAEB401FD334B500DCD9CE /* LaunchScreen.storyboard */,
 				BEEAEB431FD334B500DCD9CE /* Info.plist */,
@@ -334,7 +340,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEEAEB661FD3416600DCD9CE /* LoginViewController.swift in Sources */,
 				BEEAEB3A1FD334B500DCD9CE /* ViewController.swift in Sources */,
+				BEEAEB681FD3425100DCD9CE /* SignUpViewController.swift in Sources */,
 				BEEAEB381FD334B500DCD9CE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
