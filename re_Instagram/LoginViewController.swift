@@ -31,6 +31,12 @@ class LoginViewController: UIViewController {
                 self.performSegue(withIdentifier: "loginSegue", sender: self)
             } else {
                 print("Error logging in from LoginViewController function onLogIn() with localized description: \(String(describing: error?.localizedDescription))")
+                let alertController = UIAlertController(title: "Error Logging In", message: "\(String(describing: error!.localizedDescription))\nPlease try again.", preferredStyle: .alert)
+                let tryAgainAction = UIAlertAction(title: "Try Again", style: .default, handler: { (alert) in
+                    alertController.dismiss(animated: true, completion: nil)
+                })
+                alertController.addAction(tryAgainAction)
+                self.present(alertController, animated: true, completion: nil)
             }
         }
     
