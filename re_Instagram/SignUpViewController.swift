@@ -43,8 +43,16 @@ class SignUpViewController: UIViewController {
                     print("Error from completion block in SignUpViewController function onSignUp().  Error localized description: \(error!.localizedDescription)")
     //                if error?.code  == 202 {
     //                     Add code to show user alert
+    //                      Issue with block expecting Error not NSError, so no
+    //                .code getter available...
     //                    print("Username is taken")
     //                }
+                    let alertController = UIAlertController(title: "Error Signing Up", message: "\(String(describing: error!.localizedDescription))\nPlease try again.", preferredStyle: .alert)
+                    let tryAgainAction = UIAlertAction(title: "Try Again", style: .default, handler: { (action) in
+                        alertController.dismiss(animated: true, completion: nil)
+                    })
+                    alertController.addAction(tryAgainAction)
+                    self.present(alertController, animated: true, completion: nil)
                 }
             }
         }
