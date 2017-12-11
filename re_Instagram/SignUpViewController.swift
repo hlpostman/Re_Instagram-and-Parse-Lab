@@ -23,20 +23,29 @@ class SignUpViewController: UIViewController {
     }
 
     @IBAction func onSignUp(_ sender: Any) {
-        let newUser = PFUser()
-        newUser.username = usernameTextField.text
-        newUser.password = passwordTextField.text
-        
-        newUser.signUpInBackground { (success: Bool, error: Error?) in
-            if success {
-                print("Created a user")
-                self.performSegue(withIdentifier: "signUpSegue", sender: self)
-            } else {
-                print("Error from completion block in SignUpViewController function onSignUp().  Error localized description: \(error!.localizedDescription)")
-//                if error?.code  == 202 {
-//                     Add code to show user alert
-//                    print("Username is taken")
-//                }
+        if (usernameTextField.text?.isEmpty)! || (passwordTextField.text?.isEmpty)! {
+            let alertController = UIAlertController(title: "Username and Password Required", message: "Please enter both a username and password.", preferredStyle: .alert)
+            let okayAction = UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                alertController.dismiss(animated: true, completion: nil)
+            })
+            alertController.addAction(okayAction)
+            present(alertController, animated: true, completion: nil)
+        } else {
+            let newUser = PFUser()
+            newUser.username = usernameTextField.text
+            newUser.password = passwordTextField.text
+            
+            newUser.signUpInBackground { (success: Bool, error: Error?) in
+                if success {
+                    print("Created a user")
+                    self.performSegue(withIdentifier: "signUpSegue", sender: self)
+                } else {
+                    print("Error from completion block in SignUpViewController function onSignUp().  Error localized description: \(error!.localizedDescription)")
+    //                if error?.code  == 202 {
+    //                     Add code to show user alert
+    //                    print("Username is taken")
+    //                }
+                }
             }
         }
     }
