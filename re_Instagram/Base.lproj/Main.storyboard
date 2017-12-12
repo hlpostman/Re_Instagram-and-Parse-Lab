@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -80,9 +81,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ths-89-tul">
-                                <rect key="frame" x="16" y="134" width="217" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ths-89-tul">
+                                <rect key="frame" x="16" y="132" width="225" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -98,14 +98,47 @@
                                     <action selector="onSendButton:" destination="3Ue-np-kNb" eventType="touchUpInside" id="2IM-wR-V6K"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tRR-tj-OfX">
+                                <rect key="frame" x="0.0" y="186" width="375" height="481"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatCell" id="tma-gb-MMr" customClass="ChatCell" customModule="re_Instagram" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tma-gb-MMr" id="5yr-gA-hze" customClass="ChatCell" customModule="re_Instagram" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ws3-zL-6fh">
+                                                    <rect key="frame" x="166" y="0.0" width="42" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tRR-tj-OfX" firstAttribute="top" secondItem="ths-89-tul" secondAttribute="bottom" constant="24" id="DBN-cZ-5hs"/>
+                            <constraint firstItem="tRR-tj-OfX" firstAttribute="leading" secondItem="wEJ-iS-Dsw" secondAttribute="leading" id="OoF-JH-gAC"/>
+                            <constraint firstItem="wEJ-iS-Dsw" firstAttribute="bottom" secondItem="tRR-tj-OfX" secondAttribute="bottom" id="Qhk-GR-JwK"/>
+                            <constraint firstItem="ths-89-tul" firstAttribute="leading" secondItem="wEJ-iS-Dsw" secondAttribute="leading" constant="16" id="dGN-rp-fZR"/>
+                            <constraint firstItem="wEJ-iS-Dsw" firstAttribute="trailing" secondItem="tRR-tj-OfX" secondAttribute="trailing" id="jUt-7X-eye"/>
+                            <constraint firstItem="ths-89-tul" firstAttribute="width" secondItem="wEJ-iS-Dsw" secondAttribute="width" multiplier="6/10" id="lZp-0H-2Rk"/>
+                            <constraint firstItem="ths-89-tul" firstAttribute="top" secondItem="wEJ-iS-Dsw" secondAttribute="top" constant="68" id="wF4-DT-3Ww"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="wEJ-iS-Dsw"/>
                     </view>
                     <navigationItem key="navigationItem" title="Chat" id="NWp-bo-aSX"/>
                     <connections>
                         <outlet property="chatMessageTextField" destination="ths-89-tul" id="Pe4-14-mvh"/>
                         <outlet property="sendButton" destination="lih-AM-pv5" id="xsT-ei-2Hz"/>
+                        <outlet property="tableView" destination="tRR-tj-OfX" id="f39-dh-KNg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0K5-5J-IBE" userLabel="First Responder" sceneMemberID="firstResponder"/>

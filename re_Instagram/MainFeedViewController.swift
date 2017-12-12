@@ -9,13 +9,15 @@
 import UIKit
 import Parse
 
-class MainFeedViewController: UIViewController {
+class MainFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var chatMessageTextField: UITextField!
     @IBOutlet weak var sendButton: UIButton!
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        tableView.delegate = self
+        tableView.dataSource = self
         sendButton.layer.cornerRadius = 5
     }
 
@@ -32,6 +34,15 @@ class MainFeedViewController: UIViewController {
                 print("Message failed to save with error having localized description \"\(error.localizedDescription)\"")
             }
         }
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection: Int) -> Int {
+        return 20
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ChatCell", for: indexPath) as! ChatCell
+        return cell
     }
     
     override func didReceiveMemoryWarning() {
