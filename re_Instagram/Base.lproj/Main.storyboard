@@ -72,21 +72,45 @@
             </objects>
             <point key="canvasLocation" x="117.59999999999999" y="117.39130434782609"/>
         </scene>
-        <!--Main Feed View Controller-->
+        <!--Chat-->
         <scene sceneID="KJC-rd-YHF">
             <objects>
                 <viewController id="3Ue-np-kNb" customClass="MainFeedViewController" customModule="re_Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="L1s-Tc-5Xm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ths-89-tul">
+                                <rect key="frame" x="16" y="134" width="217" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lih-AM-pv5">
+                                <rect key="frame" x="259" y="134" width="81" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.018254790455102921" green="0.477000892162323" blue="0.98541337251663208" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Send">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onSendButton:" destination="3Ue-np-kNb" eventType="touchUpInside" id="2IM-wR-V6K"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="wEJ-iS-Dsw"/>
                     </view>
-                    <navigationItem key="navigationItem" id="NWp-bo-aSX"/>
+                    <navigationItem key="navigationItem" title="Chat" id="NWp-bo-aSX"/>
+                    <connections>
+                        <outlet property="chatMessageTextField" destination="ths-89-tul" id="Pe4-14-mvh"/>
+                        <outlet property="sendButton" destination="lih-AM-pv5" id="xsT-ei-2Hz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0K5-5J-IBE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1288.8" y="116.49175412293854"/>
+            <point key="canvasLocation" x="1765.5999999999999" y="115.59220389805098"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="7vv-AZ-aeb">
@@ -160,11 +184,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="2O6-Gb-Dl9"/>
                     </view>
-                    <navigationItem key="navigationItem" id="uk0-Uc-6ID"/>
+                    <navigationItem key="navigationItem" title="Welcome View Controller" id="uk0-Uc-6ID"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="erD-eT-nli" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1288.8" y="825.33733133433293"/>
+            <point key="canvasLocation" x="1766" y="825"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="iy4-PS-StH">

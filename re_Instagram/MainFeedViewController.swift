@@ -7,15 +7,33 @@
 //
 
 import UIKit
+import Parse
 
 class MainFeedViewController: UIViewController {
-
+    @IBOutlet weak var chatMessageTextField: UITextField!
+    @IBOutlet weak var sendButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        sendButton.layer.cornerRadius = 5
     }
 
+    
+    @IBAction func onSendButton(_ sender: Any) {
+        let chatMessage = PFObject(className: "Message")
+        chatMessage["text"] = chatMessageTextField.text ?? ""
+        chatMessage.saveInBackground { (success, error) in
+            if success {
+               
+                  self.chatMessageTextField.text = ""
+                print("Message saved with text \"\(chatMessage["text"]!)\".  Text field cleared.")
+            } else if let error = error {
+                print("Message failed to save with error having localized description \"\(error.localizedDescription)\"")
+            }
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
