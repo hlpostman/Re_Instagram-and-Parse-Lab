@@ -118,6 +118,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="messageLabel" destination="ws3-zL-6fh" id="3z0-Mv-IeO"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

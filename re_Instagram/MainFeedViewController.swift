@@ -14,11 +14,12 @@ class MainFeedViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
-    var messages: [PFObject] = []
+    var messages: [PFObject]? = []
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        fetchMessages()
         tableView.delegate = self
         tableView.dataSource = self
         sendButton.layer.cornerRadius = 5
@@ -42,11 +43,18 @@ class MainFeedViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection: Int) -> Int {
-        return 20
+        return messages?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        fetchMessages()
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChatCell", for: indexPath) as! ChatCell
+        print("\(String(describing: messages?.count))")
+        if messages!.count > 0 {
+            if let message = messages?[indexPath.row] {
+                cell.messageLabel.text = message["text"] as? String
+            }
+        }
         return cell
     }
     
@@ -54,11 +62,15 @@ class MainFeedViewController: UIViewController, UITableViewDelegate, UITableView
         // Fetch messages from Parse
         print("Timer running")
         let query = PFQuery(className: "Message")
+//        query.includeKey("text")
         query.addDescendingOrder("createdAt")
+//        query.limit = 2
         query.findObjectsInBackground { (messages: [PFObject]?, error: Error?) in
             if let messages = messages {
                 print("saved messages")
-                print("\(String(describing: messages.first))")
+                self.messages = messages
+                print("\(String(describing: self.messages?.first!["text"]!))")
+                self.tableView.reloadData()
             } else {
                 print("Error from chat view controller trying to get messages in fetchMessages() function with localized description \"\(error!.localizedDescription)\"")
             }
