@@ -14,6 +14,9 @@ class MainFeedViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
+    var messages: [PFObject] = []
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -50,6 +53,17 @@ class MainFeedViewController: UIViewController, UITableViewDelegate, UITableView
     @objc func fetchMessages() {
         // Fetch messages from Parse
         print("Timer running")
+        let query = PFQuery(className: "Message")
+        query.addDescendingOrder("createdAt")
+        query.findObjectsInBackground { (messages: [PFObject]?, error: Error?) in
+            if let messages = messages {
+                print("saved messages")
+                print("\(String(describing: messages.first))")
+            } else {
+                print("Error from chat view controller trying to get messages in fetchMessages() function with localized description \"\(error!.localizedDescription)\"")
+            }
+            }
+        
     }
     
     override func didReceiveMemoryWarning() {
