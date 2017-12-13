@@ -19,8 +19,10 @@ class MainFeedViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.delegate = self
         tableView.dataSource = self
         sendButton.layer.cornerRadius = 5
+        let timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.fetchMessages), userInfo: nil, repeats: true)
+        timer.fire()
+        
     }
-
     
     @IBAction func onSendButton(_ sender: Any) {
         let chatMessage = PFObject(className: "Message")
@@ -43,6 +45,11 @@ class MainFeedViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChatCell", for: indexPath) as! ChatCell
         return cell
+    }
+    
+    @objc func fetchMessages() {
+        // Fetch messages from Parse
+        print("Timer running")
     }
     
     override func didReceiveMemoryWarning() {
