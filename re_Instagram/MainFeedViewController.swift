@@ -33,6 +33,7 @@ class MainFeedViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBAction func onSendButton(_ sender: Any) {
         let chatMessage = PFObject(className: "Message")
+        chatMessage["user"] = PFUser.current()
         chatMessage["text"] = chatMessageTextField.text ?? ""
         chatMessage.saveInBackground { (success, error) in
             if success {
@@ -55,6 +56,11 @@ class MainFeedViewController: UIViewController, UITableViewDelegate, UITableView
         if messages!.count > 0 {
             if let message = messages?[indexPath.row] {
                 cell.messageLabel.text = message["text"] as? String
+                if let user = message["user"] as? PFUser {
+                    cell.userNameLabel.text = user.username!
+                } else {
+                    cell.userNameLabel.text = "🙂"
+                }
             }
         }
         return cell
@@ -64,7 +70,7 @@ class MainFeedViewController: UIViewController, UITableViewDelegate, UITableView
         // Fetch messages from Parse
         print("Timer running")
         let query = PFQuery(className: "Message")
-//        query.includeKey("text")
+        query.includeKey("user")
         query.addDescendingOrder("createdAt")
 //        query.limit = 2
         query.findObjectsInBackground { (messages: [PFObject]?, error: Error?) in
