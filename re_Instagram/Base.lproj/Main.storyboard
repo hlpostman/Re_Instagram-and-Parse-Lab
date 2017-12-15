@@ -102,24 +102,29 @@
                                 <rect key="frame" x="0.0" y="186" width="375" height="481"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatCell" id="tma-gb-MMr" customClass="ChatCell" customModule="re_Instagram" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatCell" id="L6E-xH-Cta" customClass="ChatCell" customModule="re_Instagram" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tma-gb-MMr" id="5yr-gA-hze" customClass="ChatCell" customModule="re_Instagram" customModuleProvider="target">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="L6E-xH-Cta" id="qhM-6S-FEB">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ws3-zL-6fh">
-                                                    <rect key="frame" x="166" y="0.0" width="42" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MAN-LM-kEi">
+                                                    <rect key="frame" x="16" y="8" width="343" height="27.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="MAN-LM-kEi" firstAttribute="top" secondItem="qhM-6S-FEB" secondAttribute="top" constant="8" id="8et-uC-Mwk"/>
+                                                <constraint firstAttribute="bottom" secondItem="MAN-LM-kEi" secondAttribute="bottom" constant="8" id="Q2R-dy-hsk"/>
+                                                <constraint firstItem="MAN-LM-kEi" firstAttribute="leading" secondItem="qhM-6S-FEB" secondAttribute="leading" constant="16" id="mMq-sO-f9D"/>
+                                                <constraint firstAttribute="trailing" secondItem="MAN-LM-kEi" secondAttribute="trailing" constant="16" id="oOX-FS-Yx1"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="messageLabel" destination="ws3-zL-6fh" id="3z0-Mv-IeO"/>
+                                            <outlet property="messageLabel" destination="MAN-LM-kEi" id="KZT-MT-5Uc"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

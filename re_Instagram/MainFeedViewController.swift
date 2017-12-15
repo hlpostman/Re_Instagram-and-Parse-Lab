@@ -20,8 +20,12 @@ class MainFeedViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchMessages()
+        
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 50
+        
         sendButton.layer.cornerRadius = 5
         let timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.fetchMessages), userInfo: nil, repeats: true)
         
