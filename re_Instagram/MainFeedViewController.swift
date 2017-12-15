@@ -24,7 +24,6 @@ class MainFeedViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.dataSource = self
         sendButton.layer.cornerRadius = 5
         let timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.fetchMessages), userInfo: nil, repeats: true)
-        timer.fire()
         
     }
     
@@ -47,7 +46,6 @@ class MainFeedViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        fetchMessages()
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChatCell", for: indexPath) as! ChatCell
         print("\(String(describing: messages?.count))")
         if messages!.count > 0 {
