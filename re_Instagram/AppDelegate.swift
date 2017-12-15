@@ -21,6 +21,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             configuration.clientKey = "lsldkfj4643jkldsfanb23y4b612n"
             configuration.server = "http://rocky-lowlands-82255.herokuapp.com/parse"
         }))
+        if let currentUser = PFUser.current() {
+            print("Welcome back \(String(describing: currentUser.username))")
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let mainFeedViewController = storyboard.instantiateViewController(withIdentifier: "NavigationControllerForMainFeedViewController")
+            window?.rootViewController = mainFeedViewController
+        }
         return true
     }
 

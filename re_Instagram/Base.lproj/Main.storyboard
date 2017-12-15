@@ -76,7 +76,7 @@
         <!--Chat-->
         <scene sceneID="KJC-rd-YHF">
             <objects>
-                <viewController id="3Ue-np-kNb" customClass="MainFeedViewController" customModule="re_Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainFeedViewController" id="3Ue-np-kNb" customClass="MainFeedViewController" customModule="re_Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="L1s-Tc-5Xm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -87,9 +87,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lih-AM-pv5">
-                                <rect key="frame" x="259" y="134" width="81" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lih-AM-pv5">
+                                <rect key="frame" x="249" y="132" width="110" height="30"/>
                                 <color key="backgroundColor" red="0.018254790455102921" green="0.477000892162323" blue="0.98541337251663208" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Send">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -145,10 +144,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="lih-AM-pv5" firstAttribute="leading" secondItem="ths-89-tul" secondAttribute="trailing" constant="8" id="0aE-Dn-mPv"/>
+                            <constraint firstItem="lih-AM-pv5" firstAttribute="centerY" secondItem="ths-89-tul" secondAttribute="centerY" id="AWj-lR-PmK"/>
                             <constraint firstItem="tRR-tj-OfX" firstAttribute="top" secondItem="ths-89-tul" secondAttribute="bottom" constant="24" id="DBN-cZ-5hs"/>
                             <constraint firstItem="tRR-tj-OfX" firstAttribute="leading" secondItem="wEJ-iS-Dsw" secondAttribute="leading" id="OoF-JH-gAC"/>
                             <constraint firstItem="wEJ-iS-Dsw" firstAttribute="bottom" secondItem="tRR-tj-OfX" secondAttribute="bottom" id="Qhk-GR-JwK"/>
                             <constraint firstItem="ths-89-tul" firstAttribute="leading" secondItem="wEJ-iS-Dsw" secondAttribute="leading" constant="16" id="dGN-rp-fZR"/>
+                            <constraint firstItem="wEJ-iS-Dsw" firstAttribute="trailing" secondItem="lih-AM-pv5" secondAttribute="trailing" constant="16" id="e9C-Eg-GQU"/>
                             <constraint firstItem="wEJ-iS-Dsw" firstAttribute="trailing" secondItem="tRR-tj-OfX" secondAttribute="trailing" id="jUt-7X-eye"/>
                             <constraint firstItem="ths-89-tul" firstAttribute="width" secondItem="wEJ-iS-Dsw" secondAttribute="width" multiplier="6/10" id="lZp-0H-2Rk"/>
                             <constraint firstItem="ths-89-tul" firstAttribute="top" secondItem="wEJ-iS-Dsw" secondAttribute="top" constant="68" id="wF4-DT-3Ww"/>
@@ -247,7 +249,7 @@
         <!--Navigation Controller-->
         <scene sceneID="iy4-PS-StH">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="a1l-Cf-qPX" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavigationControllerForMainFeedViewController" automaticallyAdjustsScrollViewInsets="NO" id="a1l-Cf-qPX" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0Na-cU-OA7">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
