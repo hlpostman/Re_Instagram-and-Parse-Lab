@@ -10,6 +10,10 @@ import UIKit
 import Parse
 
 class MainFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+//    var newLogin: Bool = false
+    
+    @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var chatMessageTextField: UITextField!
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
@@ -19,6 +23,9 @@ class MainFeedViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        usernameLabel.text = ("🌸 \(String(describing: PFUser.current()!.username!))")
+        
         fetchMessages()
         
         tableView.delegate = self
@@ -84,6 +91,28 @@ class MainFeedViewController: UIViewController, UITableViewDelegate, UITableView
             }
             }
         
+    }
+    
+    @IBAction func onLogoutButton(_ sender: Any) {
+        print("Tapped logout button")
+        PFUser.logOutInBackground { (error: Error?) in
+            if (error != nil) {
+                print("Error loggin out")
+            } else {
+                print("Logged user out in background")
+            }
+        }
+//        dismiss works when there was another root view controller, but does not work when persisting user from restart
+        // Temporariyl letting newLogin always = true
+        let newLogin = true
+        if newLogin {
+            print("Was a new login.  Just dismissing")
+            self.dismiss(animated: true, completion: nil)
+        } else {
+            print("Was a persisted login - creating new login vc to present on logout")
+            let loginViewController = UIViewController() as! LoginViewController
+            present(loginViewController, animated: true, completion: nil)
+        }
     }
     
     override func didReceiveMemoryWarning() {

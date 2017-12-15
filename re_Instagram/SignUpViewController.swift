@@ -16,9 +16,10 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var goToLoginButton: UIButton!
     
+    @IBOutlet weak var goToLoginView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        goToLoginView.layer.cornerRadius = 4
         // Do any additional setup after loading the view.
     }
 

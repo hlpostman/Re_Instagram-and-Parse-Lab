@@ -18,15 +18,18 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var goToSignUpButton: UIButton!
     
+    @IBOutlet weak var goToSignUpView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        goToSignUpView.layer.cornerRadius = 4
         // Do any additional setup after loading the view.
     }
     
     @IBAction func onLogIn(_ sender: Any) {
         PFUser.logInWithUsername(inBackground: usernameTextField.text!, password: passwordTextField.text!) { (user: PFUser?, error: Error?) in
             if user != nil {
+                self.usernameTextField.text = ""
+                self.passwordTextField.text = ""
                 print("Successfully logged in user")
                 self.performSegue(withIdentifier: "loginSegue", sender: self)
             } else {
@@ -39,6 +42,11 @@ class LoginViewController: UIViewController {
                 self.present(alertController, animated: true, completion: nil)
             }
         }
+//        let mainFeedViewController = UIViewController() as! MainFeedViewController
+//        let segue = UIStoryboardSegue(identifier: "loginSegue", source: self, destination: mainFeedViewController)
+//        let vc = segue.destination as! MainFeedViewController
+//        vc.newLogin = true
+//        print("Set MainFeedViewController newLogin to true")
     
     }
     @IBAction func onGoToSignUp(_ sender: Any) {
@@ -52,14 +60,15 @@ class LoginViewController: UIViewController {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        let vc = segue.destination as! MainFeedViewController
+//        vc.newLogin = true
+//        print("Set MainFeedViewController newLogin to true")
+//    }
+ 
 
 }
